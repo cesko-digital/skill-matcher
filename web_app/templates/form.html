@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skills Matching Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='pic/cd-logo.png') }}">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/skills_options.js') }}"></script>
+
+</head>
+<body>
+    <h1 class="my-4 text-center"><strong>Skills Matching Form</strong></h1>
+    <div class="container">
+        <form action="/result" method="POST" id="skills-form">
+            <!-- Looking for options -->
+            <div class="input-row" id="looking-for-row">
+                <div class="form-group">
+                    <label for="looking-for">Looking for:</label>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="looking-for" value="Volunteer" checked> Volunteer
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="looking-for" value="Mentor"> Mentor
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label for="position_name0">Position Name</label>
+                    <input type="text" id="position_name0" name="position_name0" placeholder="Enter position name ..." class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="position_link0">Position Link</label>
+                    <input type="text" id="position_link0" name="position_link0" placeholder="Enter position link ..." class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="position_description0">Position Description</label>
+                    <textarea id="position_description0" name="position_description0" placeholder="Enter position description ..." class="form-control"></textarea>
+                </div>
+            </div>
+            <button class="hint-button" onclick="window.open('/skills', '_blank')">?</button>
+            <div id="input-container">
+                <div class="input-row" id="row0">
+                    <div class="form-group">
+                        <label for="option_skill0">Skill Name</label>
+                        <input type="text" id="option_skill0" name="option_skill0" placeholder="Type skill ..." class="form-control" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="level_skill0">Skill Level (Optional)</label>
+                        <select id="level_skill0" name="level_skill0" class="form-control">
+                            <option value="">Select skill level ...</option>
+                            <option value="Junior">Junior</option>
+                            <option value="Medior">Medior</option>
+                            <option value="Senior">Senior</option>
+                            <option value="Mentor">Mentor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="skill_weight0">Skill Weight (Optional)</label>
+                        <input type="number" id="skill_weight0" name="skill_weight0" placeholder="Enter skill weight ..." class="form-control">
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="remove-row-placeholder"></div>
+                </div>
+            </div>
+            <button class="btn btn-primary mt-4" id="add-more">Add more</button>
+            <div class="submit-container">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

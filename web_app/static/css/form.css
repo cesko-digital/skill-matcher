@@ -1,0 +1,120 @@
+
+body {
+    background-image: url("/static/pic/visual.jpg");
+    background-color: #0000FF;
+    font-family: 'CD_font', sans-serif !important;
+    padding: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+h1 {
+    color: white !important;
+}
+
+.container {
+    max-width: 800px !important;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.input-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.input-row .form-group {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.input-row .form-group:last-child {
+    padding-right: 0;
+}
+
+.remove-row {
+    border: none;
+    background: #dc3545;
+    color: white;
+    cursor: pointer;
+    padding: 4px 13px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 35px;
+}
+
+.remove-row-placeholder {
+    width: 80px;
+}
+
+.error {
+    border: 2px solid red;
+}
+
+/* Updated styles for button positions */
+#add-more {
+    margin-bottom: 10px;
+}
+
+#skills-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#skills-form .submit-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+#skills-form .submit-container button[type="submit"] {
+    margin-top: 10px;
+}
+.btn-primary {
+    background-color: rgb(21, 0, 207) !important;
+}
+.btn-selected {
+    background-color: #0000FF !important;
+    color: white !important;
+}
+
+.btn-unselected {
+    background-color: gray !important;
+    color: white !important;
+}
+
+/* Updated styles for wider fields */
+#position_name0{
+    width: 250px;
+}
+#position_link0,
+#position_description0 {
+    width: 428px;
+}
+
+/* Custom font style for autocomplete options */
+.ui-autocomplete {
+    font-family: 'CD_font', sans-serif !important;
+}.error-message {
+    color: red;
+    font-size: 14px;
+}
+.hint-button {
+    border: none;
+    border-radius: 100%;
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 15px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }

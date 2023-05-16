@@ -1,0 +1,125 @@
+# Input files' directory
+input_dir: 'inputs'
+
+# JSON filensmr for mapping skills' names
+skills_map: 'skills_map.json'
+
+# TXT file name with prepared email template
+email_template: 'email.txt'
+
+# Excluding Cesko.Digital Internal employees from scoring
+drop_rows:
+  col: 'InternalTeam'
+  val: 'YES'
+
+# Email variable strings to be replaced within the template based on the form's input
+email_inputs:
+  name: 'NAME_XXX'
+  desc: 'DESC_XXX'
+  link: 'LINK_XXX'
+
+# Output columns in the result table
+out_cols:
+  # Default putput columns for both volunteers / mentors
+  default:
+    - 'Name'
+    - 'Email'
+    - 'Scoring'
+  # Additional output columns for volunteers
+  volunteer:
+    - 'OtherSkills'
+    - 'ProfileURL'
+    - 'DaysSinceRegistered'
+    - 'LastMailSent'
+    - 'CountPastProjects'
+    - 'OnProjectNow'
+  # Additional output columns for mentors
+  mentor:
+    - 'OtherSkills'
+    - 'PredstaveniTriVety'
+    - 'MentoringZkusenostiDetail'
+    - 'Prilezitosti'
+    - 'MentoringPraceSLidmiVNezisk'
+    - 'Temata'
+    - 'VerejneVystoupeni'
+    - 'CountPastProjects'
+    - 'OnProjectNow'
+
+# Mapping indicators for missing skill levels:
+mapping_lvl_nan:
+  # Skill is non-missing, but level is missing
+  skill_y_lvl_n: 'N/A level'
+  # Both skill and skill level is missing
+  skill_n_lvl_n: 'X'
+
+# Constant value for penalizing missing skills in scoring
+X_const: 3
+
+# Mapping the skill levels' names
+lvl_map:
+  junior: 'Junior'
+  medior: 'Medior'
+  senior: 'Senior'
+  mentor: 'Mentor'
+
+# Timestamp column (i.e., last update of Snowflake database)
+timestamp: '_timestamp'
+# Column name for Other Skills of given users (excluding the required skills from the form)
+other_skills: OtherSkills
+# Column name for the column with the dates of last sent email
+last_email_sent: LastMailSent
+
+# Mapping the English output columns to Czech output columns in result table
+translate:
+  default:
+    Name: 'Jméno'
+    Email: 'Email'
+    Scoring: 'Skóre'
+  volunteer:
+    OtherSkills: 'Další skills'
+    ProfileURL: 'Profil'
+    DaysSinceRegistered: 'Počet dní od registrace'
+    LastMailSent: 'Poslední odeslaný email'
+    CountPastProjects: 'Počet absolvovaných Č.D. projektů'
+    OnProjectNow: 'Aktuálně na projektu?'
+  mentor:
+    OtherSkills: 'Další skills'
+    PredstaveniTriVety: 'Představení'
+    MentoringZkusenostiDetail: 'Mentoringové zkušenosti'
+    Prilezitosti: 'Příležitosti'
+    MentoringPraceSLidmiVNezisk: 'Mentoring v neziskovce'
+    Temata: 'Témata'
+    VerejneVystoupeni: 'Veřejné vystoupení'
+    CountPastProjects: 'Počet absolvovaných Č.D. projektů'
+    OnProjectNow: 'Aktuálně na projektu?'
+
+# Mapping the English values to Czech values in the project indicator column
+on_project_now:
+  col: 'Aktuálně na projektu?'
+  val:
+    'YES': 'Ano'
+    'NO': 'Ne'
+
+# Sorting based on the columns in the result table
+sort:
+  volunteer:
+    cols:
+      - 'Skóre'
+      - 'Počet dní od registrace'
+    ascending:
+      - False
+      - True
+  mentor:
+    cols:
+      - 'Skóre'
+    ascending:
+      - False
+
+# Column name for the URL link profiles (in order to make hyperlinks)
+profile: 'Profil'
+# Column name for sending an email (for checkboxes)
+send_email: 'Odeslat email'
+# Column name for email (for accessing email addresses)
+email: 'Email'
+# Column name for number of projects (for replacing of N/A with 0's)
+project_count: 'Počet absolvovaných Č.D. projektů'

@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'CD_font';
+    src: url('/static/fonts/cesko.digital-regular.woff2') format('woff2'),
+         url('/static/fonts/cesko.digital-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
