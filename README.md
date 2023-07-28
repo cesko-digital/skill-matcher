@@ -14,7 +14,7 @@ The web application was built with Flask framework under ```Python 3.9.16```. It
 
 The home page displays a login page, where the application user inserts his credentials:
 <p align="center">
-   <img src="./README_IMGS/login.png" width="100%">
+   <img src="./.github/login.png" width="100%">
 </p>
 
 Aftewards, the application requires to choose and fill in the form, which consists out of following features:
@@ -23,18 +23,18 @@ Aftewards, the application requires to choose and fill in the form, which consis
 - Fill in skill name (out of 41 skills) and optionally skill level (junior, medior, senior or mentor) and skill weight for penalization of mismatches, or in other words, if we prefer one skill over other. We can also add another skills if required.
 - Additionally, the page also show a little hint button (with the question mark), which displays a page of all listed skills and their domains.
 <p align="center">
-   <img src="./README_IMGS/form.png" width="100%">
+   <img src="./.github/form.png" width="100%">
 </p>
 
 Subsequently, a custom scoring algorithm will be run in the background and return an output result table which includes the users' names, emails and their scores as well as their skill dispositions, URL profile links and many others. An application user may also download the result table as an Excel file in order to filter in according to his preferences.
 - The table also includes checkboxes via which we select the users to whom we want to send an email, which will be done via the Send email button.
 <p align="center">
-   <img src="./README_IMGS/result.png" width="100%">
+   <img src="./.github/result.png" width="100%">
 </p>
 
 The app will open a new Gmail email page, where all the position informations are input into the prepared email template, namely into email subject and email body, and the emails of selected users are inserted into hidden copy / blind carbon copy (Bcc.). Before sending email, an application user can adjust the email according to his preferences, add more recipients, attachments, adjust the body etc.
 <p align="center">
-   <img src="./README_IMGS/email.png" width="100%">
+   <img src="./.github/email.png" width="100%">
 </p>
 
 ## Repository structure
