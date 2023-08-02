@@ -1,1 +1,5 @@
-#.env
+node_modules
+.DS_Store
+.serverless
+__pycache__
+web_app/.requirements.zip
