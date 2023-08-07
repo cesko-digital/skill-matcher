@@ -1,4 +1,8 @@
-# Importing relevant modules
+try:
+  import unzip_requirements
+except ImportError:
+  pass
+
 import warnings
 warnings.filterwarnings('ignore')
 

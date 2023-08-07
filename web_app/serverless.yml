@@ -1,0 +1,48 @@
+service: matcher
+
+provider:
+  name: aws
+  # The kind of container the app should run in. Available runtimes here:
+  # https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
+  runtime: python3.10
+  region: eu-central-1
+  memorySize: 512
+  versionFunctions: false
+  timeout: 30
+
+plugins:
+  # This plugin is essentially a request/response adapter between Lambda
+  # and the Python app running in the container. Detailed documentation here:
+  # https://www.serverless.com/plugins/serverless-wsgi
+  - serverless-wsgi
+  # This plugin packs the Python dependencies to upload them to Lambda.
+  # The serverless-wsgi plugin can pack the dependencies itself, but it
+  # doesn’t seem to work the way we want to.
+  - serverless-python-requirements
+
+custom:
+  # Configuration options for the serverless-wsgi plugin from above
+  wsgi:
+    # Entry point is the `app` variable from the `app.py` file
+    app: app.app
+    # Don’t pack dependencies, we’ll do that with the other plugin
+    packRequirements: false
+    pythonBin: python3
+  # Configuration options for the serverless-python-requirements plugin from above
+  pythonRequirements:
+    # On non-linux platforms such as macOS, install and pack the dependencies using
+    # a Docker container that matches the AWS Lambda machines. Otherwise some dependencies
+    # could break (NumPy).
+    dockerizePip: non-linux
+    # There’s a hard limit on unpacked image size on Lambda. This image won’t fit under
+    # the limit, so we have to keep the dependencies zipped and only unzip them at runtime
+    # (see unzip code at the beginning of `app.py`).
+    zip: true
+
+functions:
+  app:
+    # This tells Lambda to use the WSGI adapter to handle requests and responses
+    handler: wsgi_handler.handler
+    events:
+      - http: ANY /
+      - http: "ANY /{proxy+}"
