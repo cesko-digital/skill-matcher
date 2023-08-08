@@ -1,0 +1,28 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_KEY_SECRET }}
+  APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
+  APP_USERNAME: ${{ secrets.APP_USERNAME }}
+  SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+  SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: |
+          cd web_app
+          npm install -g serverless
+          npm ci
+          sls deploy
