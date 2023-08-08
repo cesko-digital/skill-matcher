@@ -12,10 +12,10 @@ provider:
   # These credentials will be read from the environment when deploying
   # the function and set in the Lambda function environment.
   environment:
-    app_username: ${APP_USERNAME}
-    app_password: ${APP_PASSWORD}
-    snowflake_user: ${SNOWFLAKE_USER}
-    snowflake_password: ${SNOWFLAKE_PASSWORD}
+    app_username: ${env:APP_USERNAME}
+    app_password: ${env:APP_PASSWORD}
+    snowflake_user: ${env:SNOWFLAKE_USER}
+    snowflake_password: ${env:SNOWFLAKE_PASSWORD}
 
 plugins:
   # This plugin is essentially a request/response adapter between Lambda
