@@ -1,9 +1,13 @@
 name: Deploy
 
+# Run on pushes to main branch
 on:
   push:
     branches: [main]
 
+# Read credentials from repo secrets and expose them in the environment.
+# The AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY variables are for the
+# AWS CLI to let us access our AWS account.
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_KEY_SECRET }}
@@ -16,11 +20,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # Check out the code
       - uses: actions/checkout@v3
+      # Install Node
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      # Install Serverless and use it to deploy to Lambda
       - name: Deploy
         run: |
           cd web_app
