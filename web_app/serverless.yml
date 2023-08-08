@@ -6,7 +6,7 @@ provider:
   # https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
   runtime: python3.10
   region: eu-central-1
-  memorySize: 512
+  memorySize: 1024
   versionFunctions: false
   timeout: 30
   # These credentials will be read from the environment when deploying
