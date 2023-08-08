@@ -21,7 +21,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: |
+      - name: Deploy
+        run: |
           cd web_app
           npm install -g serverless
           npm ci
