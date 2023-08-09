@@ -77,6 +77,10 @@ The app will open a new Gmail email page, where all the position informations ar
 │    │     ├── skills.html
 │    │
 │    ├── app.py
+│    ├── package-lock.json
+│    ├── package.json
+│    ├── requirements.txt
+│    ├── serverless.yml
 │
 ├── .gitignore
 ├── Dockerfile
@@ -85,7 +89,7 @@ The app will open a new Gmail email page, where all the position informations ar
 ├── requirements.yml
 ```
 - ```requirements.yml``` (conda packages) / ```requirements.txt``` (pip packages)
-- ```Dockerfile``` - for Flask app deployment
+- ```package-lock.json```, ```package.json```, ```serverless.yml``` - configuration for AWS Lambda deployment
 - ```app.py``` - Backend of web application using Flask framework
 - ```templates/``` - HTML templates
 - ```static/``` - Fonts, images, CSS and JavaScript scripts
