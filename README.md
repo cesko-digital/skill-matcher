@@ -83,10 +83,8 @@ The app will open a new Gmail email page, where all the position informations ar
 │    ├── serverless.yml
 │
 ├── .gitignore
-├── Dockerfile
 ├── README.md
 ├── requirements.txt
-├── requirements.yml
 ```
 - ```requirements.yml``` (conda packages) / ```requirements.txt``` (pip packages)
 - ```package-lock.json```, ```package.json```, ```serverless.yml``` - configuration for AWS Lambda deployment
